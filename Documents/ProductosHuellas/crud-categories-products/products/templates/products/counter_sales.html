@@ -1,0 +1,24 @@
+{% extends "bases/form.html" %}
+{% block content_title %}Counter sales{% endblock content_title %}
+{% block page_content %}
+<div class="row">
+	<div class="col-md-8">
+		<div class="card">
+			<form action="{% url 'products:counter_sales' %}" method="post">
+				{% csrf_token %}
+				<div class="card-body">
+					<div class="form-groups">
+						<label>Do  you want to register the sale of this product?</label>
+						<input type="hidden" name="id_product" value="{{ product.id }}">
+						<input type="hidden" name="action" value="register_sale">
+					</div>
+				</div>
+				<div class="card-footer">
+					<button type="submit" class="btn btn-success">Save</button>
+        			<a href="{% url 'products:all' %}" class="btn btn-danger">Cancel</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock page_content %}

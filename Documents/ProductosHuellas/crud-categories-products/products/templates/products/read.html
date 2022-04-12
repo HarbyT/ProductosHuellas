@@ -1,0 +1,25 @@
+{% extends "bases/datatable_products.html" %}
+{% block content_title %}Products{% endblock content_title %}
+{% block body %}
+{% for product in products %}
+<tbody>
+    <tr>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.available }}</td>
+        <td>
+            {% if product.is_available %}
+                <form action="{% url 'products:counter_sales' %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <input type="hidden" name="id_product" value="{{ product.id }}">
+                    <button type="submit" class="btn btn-success btn-circle" role="button"><i class="fas fa-dollar-sign"></i></button>
+                </form>
+            {% endif %}
+            <a href="{% url 'products:detail' product.id  %}" class="btn btn-warning btn-circle" role="button"><i class="fas fa-eye"></i></a>
+            <a href="{% url 'products:update' product.id %}" class="btn btn-info btn-circle" role="button"><i class="far fa-edit"></i></a>
+            <a href="{% url 'products:delete' product.id  %}" class="btn btn-danger btn-circle" role="button"><i class="far fa-trash-alt"></i></a>
+        </td>
+    </tr>
+</tbody>
+{% endfor %}
+{% endblock body %}

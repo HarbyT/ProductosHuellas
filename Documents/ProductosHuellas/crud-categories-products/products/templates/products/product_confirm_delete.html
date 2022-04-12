@@ -1,0 +1,4 @@
+{% extends "bases/delete.html" %}
+{% block content_title %}Delete product{% endblock content_title %}
+{% block question %}Are you sure you want to delete this product?{% endblock question %}
+{% block cancel_url %}{% url 'products:all' %}{% endblock cancel_url %}

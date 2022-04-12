@@ -1,0 +1,7 @@
+{% extends "bases/base.html" %}
+{% block page_content %}
+<div class="row">
+	<a href="{% url 'categories:create' %}" class="btn btn-primary">New category</a>
+	<a href="{% url 'products:create' %}" class="btn btn-info">New product</a>
+</div>	
+{% endblock page_content %}

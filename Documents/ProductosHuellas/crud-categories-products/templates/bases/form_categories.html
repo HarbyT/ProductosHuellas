@@ -1,0 +1,13 @@
+{% extends "bases/form.html" %}
+
+{% block form_groups %}
+<div class="form-group">
+	<label for="id_name">Name</label>
+	{{ form.name }}
+</div>
+<div class="form-group">
+	<label for="id_description">Description</label>
+	{{ form.description }}
+</div>
+{% endblock form_groups %}
+{% block cancel_url %}{% url 'categories:all' %}{% endblock cancel_url %}

@@ -1,0 +1,22 @@
+{% extends "bases/base.html" %}
+{% load static %}
+{% block css %}
+	<link rel="stylesheet" href="{% static 'bases/vendor/datatables/dataTables.bootstrap4.min.css' %}">
+{% endblock css %}
+{% block page_content %}
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                {% block head_footer %}{% endblock head_footer %}
+                {% block body %}{% endblock body %}
+            </table>
+        </div>
+    </div>
+</div>    
+{% endblock page_content %}
+{% block js %}
+<script src="{% static 'bases/vendor/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'bases/vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'bases/js/datatable.js' %}"></script>
+{% endblock js %}

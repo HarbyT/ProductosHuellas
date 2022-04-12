@@ -1,0 +1,4 @@
+{% extends "bases/delete.html" %}
+{% block content_title %}Delete category{% endblock content_title %}
+{% block question %}Are you sure you want to delete this category?{% endblock question %}
+{% block cancel_url %}{% url 'categories:all' %}{% endblock cancel_url %}

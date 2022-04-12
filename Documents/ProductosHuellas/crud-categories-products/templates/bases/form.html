@@ -1,0 +1,39 @@
+{% extends "bases/base.html" %}
+{% block page_content %}
+<div class="row">
+	<div class="col-md-8">
+		<div class="card mb-4">
+			<form method="post">
+				{% csrf_token %}
+				<div class="card-body mb-3">
+					{% block form_groups %}
+						
+					{% endblock form_groups %}
+					<div class="form-group">
+						<span class="text-danger">
+							{% if form.errors %}
+								{% for field in form %}
+									{% if field.errors %}
+										{% for error in field.errors %}
+											{{ error|escape }}
+										{% endfor %}
+									{% endif %}
+								{% endfor %}
+								{% if form.non_field_errors %}
+									{% for error in form.non_field_errors %}
+										{{ error|escape }}
+									{% endfor %}
+								{% endif %}
+							{% endif %}
+						</span>
+					</div>
+				</div>
+				<div class="card-footer mt-3">
+					<button type="submit" class="btn btn-success">Save</button>
+        			<a href="{% block cancel_url %}{% endblock cancel_url %}" class="btn btn-danger">Cancel</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>	
+{% endblock page_content %}

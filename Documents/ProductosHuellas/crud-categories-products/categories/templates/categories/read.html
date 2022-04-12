@@ -1,0 +1,18 @@
+{% extends "bases/datatable_categories.html" %}
+{% block content_title %}Categories{% endblock content_title %}
+{% block body %}
+{% for category in categories %}
+<tbody>
+    <tr>
+        <td>{{ category.name }}</td>
+        <td>{{ category.description }}</td>
+        <td>{{ category.sales }}</td>
+        <td>
+            <a href="{% url 'categories:detail' category.id  %}" class="btn btn-warning btn-circle" role="button"><i class="fas fa-eye"></i></a>
+            <a href="{% url 'categories:update' category.id %}" class="btn btn-info btn-circle" role="button"><i class="far fa-edit"></i></a>
+            <a href="{% url 'categories:delete' category.id  %}" class="btn btn-danger btn-circle" role="button"><i class="far fa-trash-alt"></i></a>
+        </td>
+    </tr>
+</tbody>
+{% endfor %}
+{% endblock body %}

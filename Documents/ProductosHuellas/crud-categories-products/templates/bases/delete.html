@@ -1,0 +1,21 @@
+{% extends "bases/base.html" %}
+{% block page_content %}
+<div class="row">
+	<div class="col-md-8">
+		<div class="card card-danger">
+			<form role="form" method="post">
+				{% csrf_token %}
+				<div class="card-body">
+					<div class="form-group">
+						<label>{% block question %}{% endblock question %}</label>
+					</div>
+				</div>
+				<div class="card-footer">
+					<button type="submit" class="btn btn-success">Delete</button>
+					<a href="{% block cancel_url %}{% endblock cancel_url %}" class="btn btn-danger">Cancel</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock page_content %}
